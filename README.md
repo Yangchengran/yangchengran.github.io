@@ -1,3 +1,1 @@
-# yangchengran.github.io
-
-[site](yangchengran.github.io)
+# [yangchengran.github.io](https://yangchengran.github.io)
