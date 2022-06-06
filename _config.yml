@@ -1,10 +1,9 @@
 # Site settings
-name: Q-Canon
-subtitile: Notes on Quantum Information Science
-author: WXM
-# url: "https://blog.q-canon.top/" # the base hostname & protocol for your site
+name: 666
+subtitile: tai 6
+author: yang 6
 # baseurl: "" # the subpath of your site, e.g. blog/
-baseurl: "/Blog"
+baseurl: "/"
 description: >
   Notes on the basics of quantum information
 banner: Information is physical
