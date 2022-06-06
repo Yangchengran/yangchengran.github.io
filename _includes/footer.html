@@ -1,25 +1,12 @@
-<footer class="footer pure-g">
-  <div class="pure-u-1 pure-u-md-1-2">
-    <small>
-      &copy;&nbsp;
-      {%- assign date_from = site.posts[-1].date | date_to_xmlschema -%}
-      {%- assign year_from = date_from | date: '%Y' -%}
-      {%- assign date_to   = site.time | date_to_xmlschema -%}
-      {%- assign year_to   = date_to | date: '%Y' -%}
-      {%- unless year_from == nil or year_from == year_to -%}
-        <time datetime="{{ date_from }}">{{ year_from }}</time>-
-      {%- endunless -%}
-      <time datetime="{{ date_to }}">{{ year_to }}</time>
-      {%- if site.author -%}
-        &nbsp;<a href="{{ site.author.url }}" target="_blank">{{ site.author.name }}</a>
-      {%- endif -%}
-      . All right reserved.
-    </small>
-  </div>
-
-  <div class="pure-u-1 pure-u-md-1-2">
-    <small>
-      Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/zivong/jekyll-theme-hydure" target="_blank">Hydure</a>
-    </small>
-  </div>
+<footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2019-{{ site.time | date: '%Y' }} <a href="{{site.resume_site}}"><code>{{ site.author }}</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="https://github.com/luoyan35714/LessOrMore">LessOrMore</a></p>
+	</div>
 </footer>
+
+<script src="{{ '/styles/js/jquery.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/styles/js/bootstrap.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/styles/js/holder.min.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/styles/js/lessismore.js' | prepend: site.baseurl }}"></script>
+<script src="{{ '/styles/js/application.js' | prepend: site.baseurl }}"></script>

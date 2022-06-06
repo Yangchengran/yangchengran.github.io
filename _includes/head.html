@@ -1,15 +1,31 @@
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% feed_meta %}
-  {% seo %}
-  
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
-  <link rel="stylesheet" href="{{ 'assets/css/open-color.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ 'assets/css/hydure.css' | relative_url }}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ page.title | append: ' - ' | append: site.name }}</title>
 
-  <script async src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
+	<link rel="shortcut icon" href="{{ site.short_icon | prepend: site.baseurl }}">
+	<link rel="icon" href="{{ site.icon | prepend: site.baseurl }}">
 
-  {% include custom-head.html %}
+	<link rel="stylesheet" href="{{ '/styles/css/index.css' | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ '/styles/css/syntax.css' | prepend: site.baseurl }}">
+	<link rel="stylesheet" href="{{ '/styles/css/admonitions.css' | prepend: site.baseurl }}">
+	<!-- <link rel="stylesheet" href="{{ 'styles/css/thumbnails.css' | prepend: site.baseurl }}"> -->
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }}"
+		href="{{ '/feed.xml' | prepend: site.baseurl }}">
+
+	<meta name="keywords" content="{{ page.title | append: ', ' | append: site.name}}">
+
+	<script src="{{ '/styles/js/jquery.min.js' | prepend: site.baseurl }}"></script>
+	<style type="text/css">
+		.docs-content {
+			margin-bottom: 10px;
+		}
+	</style>
+	{% if page.math %}
+		{% include Optional/mathjax.html %}
+	{% endif %}
+	{% if page.mermaid %}
+		{% include Optional/mermaid.html %}
+	{% endif %}
 </head>

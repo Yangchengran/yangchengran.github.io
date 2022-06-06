@@ -1,0 +1,134 @@
+---
+---
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+  p {
+    margin-top: .8rem;
+  }
+  .admonition-title {
+    margin: 0 -1.2rem;
+    padding: .8rem 1.2rem .8rem 3.6rem;
+    border-bottom: 1px solid rgba(68, 138, 255, .2);
+    background-color: rgba(68, 138, 255, .1);
+    font-weight: 700;
+  }
+  .admonition-title:before {
+    position: absolute;
+    left: 1.2rem;
+    font-size: 1.5rem;
+    color: rgba(68, 138, 255, .8);
+    content: "\E88E";
+    font-family: Material Icons;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 2rem;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+  }
+}
+
+@mixin base_style($color, $font: Material Icons, $content: "\E88E") {
+  border-left-color: transparentize($color,.2);
+  .admonition-title {
+    background-color: transparentize($color,.8);
+    border-bottom-color: transparentize($color,.9);
+  }
+  .admonition-title:before {
+    font-family: $font;
+    color: $color;
+    content: $content;
+  }
+}
+
+.admonition.summary {
+  @include base_style(rgb(0, 176, 255), $content: "\F071");
+}
+.admonition.note {
+  @include base_style(rgb(0, 176, 255), $content: "\E06F");
+}
+.admonition.hint,
+.admonition.tip {
+  @include base_style(rgb(0, 191, 165), $content: "\E80E");
+}
+.admonition.info {
+  @include base_style(rgb(0, 184, 212), $content: "\E88E");
+}
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  @include base_style(rgb(0, 200, 83), $content: "\E876");
+}
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  @include base_style(rgb(100, 221, 23), $content: "\E887");
+}
+.admonition.warning,
+.admonition.caution {
+  @include base_style(rgb(255, 145, 0), $content: "\E002");
+}
+.admonition.attention {
+  @include base_style(rgb(255, 145, 0), $content: "\E417");
+}
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  @include base_style(rgb(255, 82, 82), $content: "\E14C");
+}
+.admonition.danger {
+  @include base_style(rgb(255, 23, 68), $content: "\E3E7");
+}
+.admonition.error {
+  @include base_style(rgb(255, 23, 68), $content: "\E14C");
+}
+.admonition.bug {
+  @include base_style(rgb(255, 23, 68), $content: "\E868");
+}
+.admonition.example,
+.admonition.snippet {
+  @include base_style(rgb(0, 184, 212), $content: "\E242");
+}
+.admonition.quote,
+.admonition.cite {
+  @include base_style(rgb(158, 158, 158), $content: "\E244");
+}
+
+.admonition.theorem
+{
+  @include base_style(rgb(0, 176, 255), Righteous, "Thm");
+  .admonition-title{
+    padding: .8rem 1.2rem .8rem 4.8rem;
+  }
+}
+.admonition.lemma
+{
+  @include base_style(rgb(0, 176, 255), Righteous, "Lam");
+  .admonition-title{
+    padding: .8rem 1.2rem .8rem 4.8rem;
+  }
+}
+.admonition.corollary
+{
+  @include base_style(rgb(0, 176, 255), Righteous, "Cor");
+  .admonition-title{
+    padding: .8rem 1.2rem .8rem 4.4rem;
+  }
+}
+.admonition.definition
+{
+  @include base_style(rgb(0, 184, 212), Righteous, "Def");
+  .admonition-title{
+    padding: .8rem 1.2rem .8rem 4.4rem;
+  }
+}

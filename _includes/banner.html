@@ -1,0 +1,19 @@
+
+<div class="banner">
+  <div class="container">
+  	{% if page.categories %}
+    	<a href="{{ '/categories/' | prepend: site.baseurl }}#{{page.categories}}-ref">{{page.categories}}</a>	/
+      {% if page.tag %}
+        {% for taggie in page.tag %} 
+          {% if forloop.last %}
+            <a href="{{ '/tag/' | prepend: site.baseurl }}#{{ taggie }}-ref">{{ taggie }}</a>
+          {% else %}
+            <a href="{{ '/tag/' | prepend: site.baseurl }}#{{ taggie }}-ref">{{ taggie }}</a>,
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% else %}
+    	{{ site.banner }}
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,33 @@
+---
+layout: default
+header: Pages
+---
+
+<div class="container docs-container">
+  <div class="row">
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+			<header class="post-header">
+				<h1 class="post-title"> Pages </h1>
+			</header>
+
+          <div class="home">
+
+            {% for page in site.pages %} 
+			  <ol class="breadcrumb">
+			    <li><a href="{{ page.url | prepend: site.baseurl }}">
+					{% if page.header %}
+						{{ page.header }}
+					{% else %}
+						no title
+					{% endif %}</a></li>
+			  </ol>
+			{% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

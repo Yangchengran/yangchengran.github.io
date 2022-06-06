@@ -1,32 +1,21 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html lang="zh-CN">
+
   {% include head.html %}
 
-  <body>
-    <div id="layout" class="pure-g">
-      {% assign cover = site.cover | default: "https://cdn.jsdelivr.net/gh/zivong/jekyll-theme-hydure@v2.0.0/cover.jpg" %}
-      {% if page.cover %}
-        {% assign cover = page.cover %}
-      {% endif %}
-      <div class="sidebar pure-u-1 pure-u-md-1-4" {% if cover %}style="background-image: url({{ cover | relative_url }});"{% endif %}>
-        <div class="sidebar-shield">
-          {% include header.html %}
-        </div>
-      </div>
-      <div class="content pure-u-1 pure-u-md-3-4">
-        <div class="main">
-          {{ content }}
-        </div>
-        {% include footer.html %}
-      </div>
-    </div>
+  <body class="index">
 
-    {% if page.math %}
-      {% include mathjax.html %}
-    {% endif %}
+    {% include header.html %}
+    {% include top_padding.html %}
+    {% unless page.title %}
+      {% include docs_header.html %}
+    {% endunless %}
 
-    {% if jekyll.environment == 'production' and site.google_analytics %}
-      {% include google-analytics.html %}
-    {% endif %}
+    {% include banner.html %}
+
+    {{ content }}
+    
+    {% include footer.html %}
+
   </body>
 </html>

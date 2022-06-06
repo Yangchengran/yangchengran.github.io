@@ -1,32 +1,40 @@
-<header class="header">
-  <a class="brand-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-  <p class="brand-tagline">{{ site.tagline }}</p>
-
-  {% if site.data.navigation %}
-    <nav class="nav pure-menu">
-      <ul class="pure-menu-list">
-      {% for item in site.data.navigation %}
-        <li class="nav-item pure-menu-item">
-          <a href="{{ item.url | relative_url }}" class="pure-menu-link {% if page.url == item.url %}current{% endif %}">
-            {{ item.title }}
-          </a>
+<header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="{{ site.baseurl }}" class="navbar-brand">
+        <img src="{{ '/assets/logo/logo.png' | prepend: site.baseurl }}">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="{{ '/' | prepend: site.baseurl }}">时间线</a>
         </li>
-      {% endfor %}
+        <li>
+          <a href="{{ '/categories/' | prepend: site.baseurl }}">分类</a>
+        </li>
+        <li>
+          <a href="{{ '/tag' | prepend: site.baseurl }}">标签</a>
+        </li>
+        <li>
+          <a href="{{ '/Quantum Information' | prepend: site.baseurl }}">量子信息</a>
+        </li>
+        <li>
+          <a href="{{ '/Misc' | prepend: site.baseurl }}">杂谈</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">链接<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="{{site.github}}">Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="{{site.resume_site}}">关于</a></li>
+            <li><a href="{{ '/feed.xml' | prepend: site.baseurl }}">RSS</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/WXMpublic/blog.git">源码</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
-  {% endif %}
-
-  {% if site.data.social %}
-    <div class="social pure-menu pure-menu-horizontal">
-      <ul class="social-list pure-menu-list">
-        {% for social in site.data.social %}
-          <li class="social-item pure-menu-item">
-            <a class="pure-menu-link pure-button" href="{{ social.url }}" target="_blank">
-              <i class="{{ social.icon | default: 'fas fa-link' }}" title="{{ social.title }}"></i>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+  </div>
 </header>

@@ -1,0 +1,31 @@
+---
+layout: default
+header: 量子信息
+---
+
+ <div class="container docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="sidebar hidden-print" role="complementary">
+            <div style="height: 200px;width: 200px;">
+              <script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0l810awr1uu&amp;m=7&amp;c=007eff&amp;cr1=ff0000&amp;f=calibri&amp;l=49" async="async">
+              </script>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9" role="main">
+          <div class="panel docs-content">
+            <div class="wrapper">
+              <p></p>
+              <div class="home">
+                {% for post in site.categories["Quantum Information"] reversed %}
+                  <ol class="breadcrumb">
+                   <li><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+                  </ol>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

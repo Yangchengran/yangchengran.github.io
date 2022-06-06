@@ -1,0 +1,13 @@
+<div class="admonition {{ admonition_type }}" >
+
+{% if admonition_title %}
+    
+    {% assign temp = admonition_body | prepend: "{: class = .admonition-title}
+" %}
+    {%- comment %} The newline is ESSENTIAL, the white space should be left as it is!!!! {% endcomment -%}
+    {{ temp | markdownify | strip_newlinew }}
+{% else %}
+    {{ admonition_body | markdownify | strip_newlinew }}
+{% endif %}
+
+</div>

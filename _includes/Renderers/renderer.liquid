@@ -1,0 +1,30 @@
+{%- if content contains "<pre" -%}
+    {%- assign content_blocks = content | split: "<pre" -%}
+    {%- for content_block in content_blocks -%}
+        {%- if content_block contains "</pre>" -%}
+            {%- assign pre_blocks = content_block | split: "</pre>" -%}
+            {%- if content_block contains '><code class="language-' -%}
+                {%- comment %} admonition_types: <pre><code class="language-**"> {% endcomment -%}
+                {%- assign custom = content_block | replace_first: '><code class="language-', "" | replace_first: '">', "<temp/>" | split: "<temp/>" -%}
+                {% assign admo_tag = custom.first %}
+
+                {% if admo_tag contains "*" %}
+                    {% assign admonition_type = admo_tag | split: "*" | last %}
+                    {% assign admonition_title = true %}
+                {% else %}
+                    {% assign admonition_type = admo_tag %}
+                    {% assign admonition_title = false %}
+                {% endif %}
+                
+                {% assign admonition_body  = custom.last | split: "</code>" | first %}
+                {% include Template/admonition.liquid %} {{ pre_blocks.last }}
+            {%- else -%}
+                <pre{{ pre_blocks.first }}</pre> {{ pre_blocks.last -}}
+            {%- endif -%}
+        {%- else -%}
+            {{ content_block }}
+        {%- endif -%}
+    {%- endfor -%}
+{%- else -%}
+    {{  content  }}
+{%- endif -%}
